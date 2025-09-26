@@ -220,9 +220,10 @@ router.post('/', async (req, res) => {
     } else {
       const orderTitle = `Заказ для группы: ${incomingGroup}`;
       const [orderResult] = await connection.execute(
-        'INSERT INTO orders (title) VALUES (?)',
-        [orderTitle]
+        'INSERT INTO orders (title, date) VALUES (?, ?)',
+        [orderTitle, new Date()]
       );
+
       orderId = orderResult.insertId;
     }
     
