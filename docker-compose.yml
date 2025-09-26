@@ -1,0 +1,46 @@
+services:
+  mysql:
+    image: mariadb:10.4
+    container_name: mysql_db
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpass
+      MYSQL_DATABASE: inventory
+      MYSQL_USER: appuser
+      MYSQL_PASSWORD: apppass
+      MYSQL_INITDB_SKIP_TZINFO: "1"
+      MYSQL_SQL_MODE: "STRICT_TRANS_TABLES,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION"
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ./inventory.sql:/docker-entrypoint-initdb.d/inventory.sql
+
+  backend:
+    build: ./backend
+    container_name: backend_api
+    restart: always
+    ports:
+      - "3001:3001"
+    environment:
+      DB_HOST: mysql
+      DB_PORT: 3306
+      DB_USER: appuser
+      DB_PASSWORD: apppass
+      DB_NAME: inventory
+      PORT: 3001
+    depends_on:
+      - mysql
+
+  frontend:
+    build: .
+    container_name: frontend_app
+    restart: always
+    ports:
+      - "5173:5173"   # Vite default port
+    depends_on:
+      - backend
+
+volumes:
+  mysql_data:
+

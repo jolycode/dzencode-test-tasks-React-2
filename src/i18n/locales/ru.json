@@ -1,0 +1,25 @@
+{
+  "navigation": {
+    "incoming": "Приход",
+    "groups": "Группа",
+    "products": "Продукты",
+    "users": "Пользователи",
+    "settings": "Настройки"
+  },
+  "header": {
+    "inventory": "Инвентарь",
+    "search": "Поиск",
+    "monday": "Понедельник",
+    "tuesday": "Вторник",
+    "wednesday": "Среда",
+    "thursday": "Четверг",
+    "friday": "Пятница",
+    "saturday": "Суббота",
+    "sunday": "Воскресенье"
+  },
+  "common": {
+    "language": "Язык",
+    "english": "Английский",
+    "russian": "Русский"
+  }
+}

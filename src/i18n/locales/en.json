@@ -1,0 +1,27 @@
+{
+  "navigation": {
+    "incoming": "Incoming",
+    "groups": "Groups",
+    "products": "Products",
+    "users": "Users",
+    "settings": "Settings"
+  },
+  "header": {
+    "inventory": "Inventory",
+    "search": "Search",
+    "monday": "Monday",
+    "tuesday": "Tuesday",
+    "wednesday": "Wednesday",
+    "thursday": "Thursday",
+    "friday": "Friday",
+    "saturday": "Saturday",
+    "sunday": "Sunday",
+    "activeUsers": "active user(s)"
+  },
+  "common": {
+    "language": "Language",
+    "english": "English",
+    "russian": "Russian"
+  }
+
+}
