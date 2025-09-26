@@ -23,5 +23,9 @@ docker-compose up --build
  
 Для остановки и удаления контейнеров вместе с volume базы данных используйте:
 
- docker-compose down -v
-# dzencode-test-tasks-React-2
+docker-compose down -v
+
+
+Быстрая очистка + пересборка (одной командой):
+
+docker stop mysql_db frontend_app backend_api || true && docker rm mysql_db frontend_app backend_api || true && docker-compose down -v && docker-compose up --build
